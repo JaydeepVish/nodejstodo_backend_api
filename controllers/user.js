@@ -2,7 +2,7 @@ import { User } from '../models/users.js';
 import bcrypt from 'bcrypt';
 import { sendCookie } from '../utils/feature.js';
 
-export const registerUser = async (req, res) => {
+export const registerUser = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
         let user = await User.findOne({ email });
@@ -18,7 +18,7 @@ export const registerUser = async (req, res) => {
     }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email }).select("+password");
