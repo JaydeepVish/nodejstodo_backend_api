@@ -7,7 +7,6 @@ export const sendCookie = (user, res, message, statusCode = 200) => {
         maxAge: 15 * 60 * 1000,
         sameSite: process.env.NODE_ENV === "DEVELOPMENT" ? 'lax' : 'none',
         secure: process.env.NODE_ENV === "DEVELOPMENT" ? false : true,
-        secure: true
     }).json({
         success: true,
         message
