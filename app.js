@@ -10,10 +10,7 @@ export const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credential: true
-}));
+app.use(cors());
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/task', taskRouter);
 
